@@ -67,8 +67,8 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
-nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>rg :Rg<SPACE>
+nnoremap <Leader>gg :GFiles<CR>
 nnoremap <Leader>df :Files<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>

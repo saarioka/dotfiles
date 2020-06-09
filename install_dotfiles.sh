@@ -22,4 +22,5 @@ vim +'PlugInstall --sync' +qa
 mkdir ~/.vim/undodir
 
 apt install nodejs
+apt install ripgrep
 
