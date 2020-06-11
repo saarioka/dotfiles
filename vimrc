@@ -31,7 +31,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " colorscheme
-Plug 'gmorhetz/gruvbo'
+Plug 'gmorhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
@@ -90,13 +90,7 @@ nnoremap <leader>cr :CocRestart
 " fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gdf :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
-nnoremap <silent> <leader>gp :Gpush<CR>
-
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
+nsjdjajsdjakjnoremap <silent> <leader>gc :Gcommit<CR> nnoremap <silent> <leader>gw :Gwrite<CR> nnoremap <silent> <leader>gp :Gpush<CR> fun! TrimWhitespace() let l:save = winsaveview() keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
 
