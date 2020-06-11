@@ -24,3 +24,6 @@ mkdir ~/.vim/undodir
 apt install nodejs
 apt install ripgrep
 
+mkdir -p ~/.config
+printf "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc\n" > ~/.config/nvim/init.vim
+
