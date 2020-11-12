@@ -17,6 +17,7 @@ set incsearch
 set nohlsearch
 set laststatus=2
 set showcmd
+set signcolumn=yes
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -37,7 +38,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 
-" colorscheme
+" colorscheme plugins
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
@@ -47,9 +48,14 @@ Plug '/home/mpaulson/personal/vim-be-good'
 
 call plug#end()
 
-
+" colorscheme settings
 colorscheme gruvbox
 set background=dark
+highlight SignColumn ctermbg=black
+let g:gitgutter_set_sign_backgrounds = 1
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -131,4 +137,3 @@ fun! TrimWhitespace()
 endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
-
