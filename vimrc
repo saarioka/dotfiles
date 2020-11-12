@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 
 set guicursor=
 set noerrorbells
@@ -14,9 +14,12 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set nohlsearch
+set laststatus=2
+set showcmd
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
 call plug#begin('~/.vim/plugged')
@@ -25,11 +28,14 @@ Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
 
 " colorscheme
 Plug 'morhetz/gruvbox'
@@ -75,6 +81,9 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" NVIM
+tnoremap <Esc> <C-\><C-n>
 
 " NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>

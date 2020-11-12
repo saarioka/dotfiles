@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+neofetch
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -82,6 +84,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias vim='nvim'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -97,3 +101,21 @@ fi
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
+
+export FLUPRO=/media/santeri/linux-storage/fluka
+export FLUFOR=gfortran
+export GFORFLU=gfortran-9
+
+export PATH=/media/santeri/linux-storage/geant4.10.06.p02-install/bin:$PATH
+source /media/santeri/linux-storage/geant4.10.06.p02-install/bin/geant4.sh # allpix needs this also
+
+# for allpix-squared
+source /media/santeri/linux-storage/root_install/bin/thisroot.sh
+export ROOT_INCLUDE_PATH=/media/santeri/linux-storage/allpix-squared/include/objects:$ROOT_INCLUDE_PATH
+
+# klayout
+export LD_LIBRARY_PATH=/media/santeri/linux-storage/klayout-0.26.8/bin-release:$LD_LIBRARY_PATH
+alias klayout=/media/santeri/linux-storage/klayout-0.26.8/bin-release/klayout
+
+alias run_flair=/media/santeri/linux-storage/flair-3.1/flair
+alias run_fluka=/media/santeri/linux-storage/fluka/flutil/rfluka

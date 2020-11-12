@@ -26,10 +26,13 @@ apt install nodejs
 apt install ripgrep
 
 # tmux
+apt install tmux
 printf "set -g default-terminal \"xterm-256color\"\n" > ~/.tmux.conf
 tmux source-file ~/.tmux.conf
 
 # neovim
-mkdir -p ~/.config
+apt install neovim
+mkdir -p ~/.config/nvim
+touch ~/.config/nvim/init.vim
 printf "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc\n" > ~/.config/nvim/init.vim
 
