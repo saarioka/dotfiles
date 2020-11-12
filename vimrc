@@ -49,10 +49,10 @@ Plug '/home/mpaulson/personal/vim-be-good'
 call plug#end()
 
 " colorscheme settings
-colorscheme gruvbox
 set background=dark
 highlight SignColumn ctermbg=black
 let g:gitgutter_set_sign_backgrounds = 1
+colorscheme gruvbox
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1

@@ -3,7 +3,7 @@
 # cache existing settings to dotfiles_old
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bashrc vimrc"
+files="bashrc vimrc zshrc tmux.conf"
 
 mkdir -p $olddir
 cd $dir
@@ -27,7 +27,6 @@ apt install ripgrep
 
 # tmux
 apt install tmux
-printf "set -g default-terminal \"xterm-256color\"\n" > ~/.tmux.conf
 tmux source-file ~/.tmux.conf
 
 # neovim
