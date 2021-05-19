@@ -90,25 +90,25 @@ function gogh() {
     bash -c "$(wget -qO- https://git.io/vQgMr)"
 }
 
-export FLUPRO=/media/santeri/linux-storage/fluka
-export FLUFOR=gfortran
-export GFORFLU=gfortran-9
+#export FLUPRO=/media/santeri/linux-storage/fluka
+#export FLUFOR=gfortran
+#export GFORFLU=gfortran-9
 
-export PATH=/media/santeri/linux-storage/geant4.10.06.p02-install/bin:$PATH
-cd /media/santeri/linux-storage/geant4.10.06.p02-install/bin/
-source /media/santeri/linux-storage/geant4.10.06.p02-install/bin/geant4.sh # allpix needs this also
-cd
+#export PATH=/media/santeri/linux-storage/geant4.10.06.p02-install/bin:$PATH
+#cd /media/santeri/linux-storage/geant4.10.06.p02-install/bin/
+#source /media/santeri/linux-storage/geant4.10.06.p02-install/bin/geant4.sh # allpix needs this also
+#cd
 
 # for allpix-squared
-source /media/santeri/linux-storage/root_install/bin/thisroot.sh
-export ROOT_INCLUDE_PATH=/media/santeri/linux-storage/allpix-squared/include/objects:$ROOT_INCLUDE_PATH
+#source /media/santeri/linux-storage/root_install/bin/thisroot.sh
+#export ROOT_INCLUDE_PATH=/media/santeri/linux-storage/allpix-squared/include/objects:$ROOT_INCLUDE_PATH
 
 # klayout
-export LD_LIBRARY_PATH=/media/santeri/linux-storage/klayout-0.26.8/bin-release:$LD_LIBRARY_PATH
-alias klayout=/media/santeri/linux-storage/klayout-0.26.8/bin-release/klayout
+#export LD_LIBRARY_PATH=/media/santeri/linux-storage/klayout-0.26.8/bin-release:$LD_LIBRARY_PATH
+#alias klayout=/media/santeri/linux-storage/klayout-0.26.8/bin-release/klayout
 
-alias run_flair=/media/santeri/linux-storage/flair-3.1/flair
-alias run_fluka=/media/santeri/linux-storage/fluka/flutil/rfluka
+#alias run_flair=/media/santeri/linux-storage/flair-3.1/flair
+#alias run_fluka=/media/santeri/linux-storage/fluka/flutil/rfluka
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
