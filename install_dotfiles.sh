@@ -3,7 +3,7 @@
 # cache existing settings to dotfiles_old
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bashrc vimrc zshrc tmux.conf"
+files="bashrc vimrc zshrc tmux.conf gitconfig"
 
 mkdir -p $olddir
 cd $dir
