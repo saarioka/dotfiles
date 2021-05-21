@@ -18,6 +18,7 @@ set nohlsearch
 set laststatus=2
 set showcmd
 set signcolumn=yes
+set nocompatible " vim-polyglot
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -30,6 +31,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
@@ -53,6 +55,8 @@ set background=dark
 highlight SignColumn ctermbg=black
 let g:gitgutter_set_sign_backgrounds = 1
 colorscheme gruvbox
+
+" git markers
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
@@ -74,27 +78,39 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" navigation
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>rg :Rg<SPACE>
+
+" Git files
 nnoremap <Leader>gg :GFiles<CR>
+
+" Directory files
 nnoremap <Leader>df :Files<CR>
+
+" resize windows
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+
+" ability to move code blocks in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" NVIM
+" NVIM console mode
 tnoremap <Esc> <C-\><C-n>
 
-" NERDTree
+" plugin: NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>
+"
+" plugin: undotree
+nnoremap <leader>u :UndotreeShow<CR>
 
-" coc
+" plugin: RipGrep
+nnoremap <Leader>rg :Rg<CR>
+
+" plugin: COC
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
@@ -104,12 +120,7 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nnoremap <leader>cr :CocRestart
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+nnoremap <leader>cr :CocRestart<CR>
 
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
@@ -123,17 +134,19 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " <cr> to confirm suggestion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" fugitive
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gdf :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
+" plug: vim fugitive
+nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gj :Gdiff<CR>
+set diffopt+=vertical " diff split is vertical instead of horizontal
+nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gp :Gpush<CR>
 
+" automatic whitespace trimming
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
-
 autocmd BufWritePre * :call TrimWhitespace()
+
