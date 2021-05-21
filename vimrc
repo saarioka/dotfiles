@@ -140,7 +140,7 @@ nnoremap <silent> <leader>gj :Gdiff<CR>
 set diffopt+=vertical " diff split is vertical instead of horizontal
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
-nnoremap <silent> <leader>gp :Gpush<CR>
+nnoremap <silent> <leader>gp :Git Push<CR>
 
 " automatic whitespace trimming
 fun! TrimWhitespace()
