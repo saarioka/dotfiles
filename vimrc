@@ -73,6 +73,8 @@ let g:vrfr_rg = 'true'
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
+let g:gitgutter_map_keys = 0 " gitgutter is only used for status bar on the left
+
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
@@ -136,7 +138,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " plug: vim fugitive
 nnoremap <silent> <leader>gs :Git<CR>
-nnoremap <silent> <leader>gj :Gdiff<CR>
+nnoremap <silent> <leader>gdf :Gdiff<CR>
 set diffopt+=vertical " diff split is vertical instead of horizontal
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
