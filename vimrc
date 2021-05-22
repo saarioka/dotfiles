@@ -33,7 +33,6 @@ Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -90,11 +89,9 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
-" Git files
-nnoremap <Leader>gg :GFiles<CR>
-
-" Directory files
+" fzf
 nnoremap <Leader>df :Files<CR>
+nnoremap <Leader>gg :GFiles<CR>
 
 " resize windows
 nnoremap <Leader>+ :vertical resize +5<CR>
@@ -109,7 +106,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " plugin: NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>
-"
+
 " plugin: undotree
 nnoremap <leader>u :UndotreeShow<CR>
 
