@@ -19,6 +19,7 @@ set laststatus=2
 set showcmd
 set signcolumn=yes
 set nocompatible " vim-polyglot
+set updatetime=250 " mostly for gitgutter
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -52,14 +53,17 @@ call plug#end()
 
 " colorscheme settings
 set background=dark
-highlight SignColumn ctermbg=black
-let g:gitgutter_set_sign_backgrounds = 1
 colorscheme gruvbox
+highlight clear SignColumn
 
-" git markers
+" git gutter marker colors
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" SignColumn appearence
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
 
 if executable('rg')
     let g:rg_derive_root='true'
