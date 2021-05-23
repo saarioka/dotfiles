@@ -69,8 +69,10 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-let loaded_matchparen = 1
 let mapleader = " "
+
+" https://stackoverflow.com/questions/34675677/disable-highlight-matched-parentheses-in-vim-let-loaded-matchparen-1-not-w
+let loaded_matchparen = 1
 
 let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
