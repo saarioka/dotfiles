@@ -20,6 +20,7 @@ set showcmd
 set signcolumn=yes
 set nocompatible " vim-polyglot
 set updatetime=250 " mostly for gitgutter
+set clipboard=unnamedplus " make clipboard same as system's
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
