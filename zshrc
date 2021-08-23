@@ -93,6 +93,9 @@ function gogh() {
 
 alias vim="nvim"
 
+# miniconda path
+export PATH="/home/santeri/miniconda3/bin:$PATH"
+
 #export FLUPRO=/media/santeri/linux-storage/fluka
 #export FLUFOR=gfortran
 #export GFORFLU=gfortran-9

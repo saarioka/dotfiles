@@ -29,25 +29,24 @@ set clipboard=unnamedplus " make clipboard same as system's
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'sheerun/vim-polyglot'
 Plug 'easymotion/vim-easymotion'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter' " left status bar
+Plug 'vim-airline/vim-airline' " bottom status bar
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " colorscheme plugins
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
-Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
-Plug '/home/mpaulson/personal/vim-be-good'
 
 call plug#end()
 
@@ -65,9 +64,9 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
 
-if executable('rg')
-    let g:rg_derive_root='true'
-endif
+"if executable('rg')
+"    let g:rg_derive_root='true'
+"endif
 
 let mapleader = " "
 
@@ -93,8 +92,8 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 " fzf
-nnoremap <Leader>df :Files<CR>
-nnoremap <Leader>gg :GFiles<CR>
+"nnoremap <Leader>df :Files<CR>
+"nnoremap <Leader>gg :GFiles<CR>
 
 " resize windows
 nnoremap <Leader>+ :vertical resize +5<CR>
@@ -114,39 +113,45 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 
 " plugin: RipGrep
-nnoremap <Leader>rg :Rg<CR>
+"nnoremap <Leader>rg :Rg<CR>
 
 " plugin: COC
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gt <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>g[ <Plug>(coc-diagnostic-prev)
-nmap <leader>g] <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
-nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nnoremap <leader>cr :CocRestart<CR>
+"nmap <leader>gd <Plug>(coc-definition)
+"nmap <leader>gt <Plug>(coc-type-definition)
+"nmap <leader>gi <Plug>(coc-implementation)
+"nmap <leader>gr <Plug>(coc-references)
+"nmap <leader>rr <Plug>(coc-rename)
+"nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+"nmap <leader>g] <Plug>(coc-diagnostic-next)
+"nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
+"nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+"nnoremap <leader>cr :CocRestart<CR>
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+"inoremap <silent><expr> <Tab>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<Tab>" :
+"      \ coc#refresh()
 
 " navigate suggestions
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " <cr> to confirm suggestion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " plug: vim fugitive
 nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gdf :Gdiff<CR>
-set diffopt+=vertical " diff split is vertical instead of horizontal
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
+set diffopt+=vertical " diff split is vertical instead of horizontal
 
 " automatic whitespace trimming
 fun! TrimWhitespace()

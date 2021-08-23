@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies:
+# apt, pip, snap
+
 # cache existing settings to dotfiles_old
 dir=~/dotfiles
 olddir=~/dotfiles_old
@@ -18,19 +21,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install vim-plug plugins
-vim +'PlugInstall --sync' +qa
+nvim +'PlugInstall --sync' +qa
 
 # vim plugin dependencies
 mkdir ~/.vim/undodir
 apt install nodejs
-apt install ripgrep
+pip install jedi
 
 # tmux
 apt install tmux
 tmux source-file ~/.tmux.conf
 
 # neovim
-apt install neovim
+snap install nvim
 mkdir -p ~/.config/nvim
 touch ~/.config/nvim/init.vim
 printf "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc\n" > ~/.config/nvim/init.vim
