@@ -26,7 +26,16 @@ nvim +'PlugInstall --sync' +qa
 # vim plugin dependencies
 mkdir ~/.vim/undodir
 apt install nodejs
-pip install jedi
+pip3 install jedi
+pip3 install pynvim --upgrade
+
+# Node
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+apt install -y nodejs
+
+# ALE: Asynchronous Lint Engine
+mkdir -p ~/.local/share/nvim/site/pack/git-plugins/start
+git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
 
 # tmux
 apt install tmux

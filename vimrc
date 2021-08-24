@@ -38,6 +38,14 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter' " left status bar
 Plug 'vim-airline/vim-airline' " bottom status bar
 
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Vimjas/vim-python-pep8-indent'
+
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -53,16 +61,29 @@ call plug#end()
 " colorscheme settings
 set background=dark
 colorscheme gruvbox
-highlight clear SignColumn
+"highlight clear SignColumn
 
 " git gutter marker colors
-highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+"highlight GitGutterAdd    guifg=#009900 ctermfg=2
+"highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+"highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 
 " SignColumn appearence
 highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
+"highlight SignColumn guifg=bg
+
+"ALE appearence
+highlight ALEErrorSign        ctermfg=Red
+highlight ALEWarningSign      ctermfg=Yellow
+highlight ALEStyleErrorSign   ctermfg=DarkCyan
+highlight ALEStyleWarningSign ctermfg=LightCyan
+highlight ALEInfoSign         ctermfg=Gray
+let g:ale_sign_style_error = '>'
+let g:ale_sign_style_warning = '-'
 
 "if executable('rg')
 "    let g:rg_derive_root='true'
@@ -116,16 +137,22 @@ nnoremap <leader>u :UndotreeShow<CR>
 "nnoremap <Leader>rg :Rg<CR>
 
 " plugin: COC
-"nmap <leader>gd <Plug>(coc-definition)
-"nmap <leader>gt <Plug>(coc-type-definition)
-"nmap <leader>gi <Plug>(coc-implementation)
-"nmap <leader>gr <Plug>(coc-references)
-"nmap <leader>rr <Plug>(coc-rename)
-"nmap <leader>g[ <Plug>(coc-diagnostic-prev)
-"nmap <leader>g] <Plug>(coc-diagnostic-next)
-"nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
-"nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-"nnoremap <leader>cr :CocRestart<CR>
+nmap <leader>d <Plug>(coc-definition)
+nmap <leader>gt <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nnoremap <leader>cr :CocRestart<CR>
+
+" pylintrc location
+let g:ale_python_pylint_use_global = 0
+let g:ale_python_pylint_change_directory = 0
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_fixers = {'python': ['black']}
 
 "inoremap <silent><expr> <Tab>
 "      \ pumvisible() ? "\<C-n>" :
@@ -133,11 +160,11 @@ nnoremap <leader>u :UndotreeShow<CR>
 "      \ coc#refresh()
 
 " navigate suggestions
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " <cr> to confirm suggestion
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
