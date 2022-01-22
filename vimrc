@@ -21,6 +21,7 @@ set signcolumn=yes
 set nocompatible " vim-polyglot
 set updatetime=250 " mostly for gitgutter
 set clipboard=unnamedplus " make clipboard same as system's
+set mouse=a
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -42,25 +43,30 @@ Plug 'vim-airline/vim-airline' " bottom status bar
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-python'
 "Plug 'davidhalter/jedi-vim'
-"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 "Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Google/yapf'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'preservim/tagbar' " status bar on the right
+Plug 'terryma/vim-multiple-cursors'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " colorscheme plugins
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'flazz/vim-colorschemes'
+"Plug 'morhetz/gruvbox'
+"Plug 'sainnhe/gruvbox-material'
+"Plug 'phanviet/vim-monokai-pro'
+"Plug 'flazz/vim-colorschemes'
+Plug 'b4skyx/serenade'
 
 call plug#end()
 
 " colorscheme settings
-set background=dark
-colorscheme gruvbox
+"set background=dark
+colorscheme serenade
 "highlight clear SignColumn
 
 " git gutter marker colors
